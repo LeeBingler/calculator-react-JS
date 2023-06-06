@@ -4,7 +4,6 @@ function ButtonInterface({ setNbrDisplay, setOperator}) {
 
   function changeNbr(nbr) {
     nbr = Number(nbr);
-    console.log(nbr);
     setNbrDisplay(actualNbr => {
       if (actualNbr === 0)
         return nbr;
@@ -12,11 +11,15 @@ function ButtonInterface({ setNbrDisplay, setOperator}) {
     });  
   }
 
+  function percentageClick () {
+    setNbrDisplay(actualNbr => actualNbr / 100);
+  }
+
   return (
     <div className='btn-interface'>
         <button className='btn'> AC </button>
         <button className='btn'> +/- </button>
-        <button className='btn'> % </button>
+        <button onClick={event => percentageClick()}className='btn'> % </button>
         <button className='btn operator'> ÷ </button>
 
         <button onClick={event => changeNbr(event.target.innerHTML)} className='btn number'> 7 </button>
