@@ -15,9 +15,14 @@ function ButtonInterface({ setNbrDisplay, setOperator}) {
     setNbrDisplay(actualNbr => actualNbr / 100);
   }
 
+  function resetClick() {
+    setNbrDisplay(0);
+    setOperator('');
+  }
+
   return (
     <div className='btn-interface'>
-        <button className='btn'> AC </button>
+        <button onClick={() => resetClick()}className='btn'> AC </button>
         <button className='btn'> +/- </button>
         <button onClick={event => percentageClick()}className='btn'> % </button>
         <button className='btn operator'> ÷ </button>
