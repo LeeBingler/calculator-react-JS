@@ -1,14 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 function ButtonInterface({ setNbrDisplay, setOperator}) {
+  const [dotClick, setDotClick] = useState(false);
+  const [powerForDecimalNbr, setPowerForDecimalNbr] = useState(1);
 
   function changeNbr(nbr) {
     nbr = Number(nbr);
-    setNbrDisplay(actualNbr => {
-      if (actualNbr === 0)
-        return nbr;
-      return actualNbr * 10 + nbr;
-    });  
+
+    if (dotClick === false) {
+      setNbrDisplay(actualNbr => {
+        if (actualNbr === 0)
+          return nbr;
+        return actualNbr * 10 + nbr;
+      });
+    } else {
+      setNbrDisplay(actualNbr => {
+        setPowerForDecimalNbr(powerForDecimalNbr + 1)
+        return actualNbr + nbr / (10 ** powerForDecimalNbr);
+      });
+    }
   }
 
   function percentageClick () {
@@ -17,6 +27,7 @@ function ButtonInterface({ setNbrDisplay, setOperator}) {
 
   function resetClick() {
     setNbrDisplay(0);
+    setDotClick(false);
     setOperator('');
   }
 
@@ -47,10 +58,10 @@ function ButtonInterface({ setNbrDisplay, setOperator}) {
         <button className='btn operator'> + </button>
 
         <button onClick={event => changeNbr(event.target.innerHTML)} className='btn number zero'> 0 </button>
-        <button className='btn number'> . </button>
+        <button onClick={() => setDotClick(true)} className='btn number'> . </button>
         <button className='btn operator'> = </button>
       </div>
   )
 }
 
-export default ButtonInterface
+export default ButtonInterface;
