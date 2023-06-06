@@ -20,11 +20,15 @@ function ButtonInterface({ setNbrDisplay, setOperator}) {
     setOperator('');
   }
 
+  function changeSign() {
+    setNbrDisplay(actualNbr => actualNbr * -1);
+  }
+
   return (
     <div className='btn-interface'>
-        <button onClick={() => resetClick()}className='btn'> AC </button>
-        <button className='btn'> +/- </button>
-        <button onClick={event => percentageClick()}className='btn'> % </button>
+        <button onClick={() => resetClick()} className='btn'> AC </button>
+        <button onClick={() => changeSign()} className='btn'> +/- </button>
+        <button onClick={() => percentageClick()} className='btn'> % </button>
         <button className='btn operator'> ÷ </button>
 
         <button onClick={event => changeNbr(event.target.innerHTML)} className='btn number'> 7 </button>
