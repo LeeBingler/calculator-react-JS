@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <Display nbrDisplay={nbrDisplay} />
-      <ButtonInterface />
+      <ButtonInterface setNbrDisplay={setNbrDisplay} setOperator={setOperator} />
     </>
   )
 }
