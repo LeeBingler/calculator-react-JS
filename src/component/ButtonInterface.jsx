@@ -79,7 +79,6 @@ function ButtonInterface({ setNbrDisplay, setOperator, operator, setNbrMemory, n
           return nbrCalculate;
           
         default:
-          console.log(operator);
           return 'Error !';
       }
     })
