@@ -48,6 +48,11 @@ function ButtonInterface({ setNbrDisplay, setOperator, operator, setNbrMemory, n
     });
   }
 
+  function resetForCalcul() {
+    setOperator('');
+    setNbrMemory(currentNbr);
+  }
+
   function makeCalcul() {
     let nbrCalculate = 0;
   
@@ -55,26 +60,22 @@ function ButtonInterface({ setNbrDisplay, setOperator, operator, setNbrMemory, n
       switch (operator) {
         case '+':
           nbrCalculate = nbrMemory + currentNbr;
-          setOperator('');
-          setNbrMemory(currentNbr);
+          resetForCalcul();
           return nbrCalculate;
 
         case '-':
           nbrCalculate = nbrMemory - currentNbr;
-          setOperator('');
-          setNbrMemory(currentNbr);
+          resetForCalcul();
           return nbrCalculate;
 
         case 'x':
           nbrCalculate = nbrMemory * currentNbr;
-          setOperator('');
-          setNbrMemory(currentNbr);
+          resetForCalcul();
           return nbrCalculate;
 
         case '÷':
           nbrCalculate = nbrMemory / currentNbr;
-          setOperator('');
-          setNbrMemory(currentNbr);
+          resetForCalcul();
           return nbrCalculate;
           
         default:
