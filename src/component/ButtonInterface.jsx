@@ -40,6 +40,8 @@ function ButtonInterface({ setNbrDisplay, setOperator, operator, setNbrMemory, n
     setOperator(() => {
       setNbrDisplay(currentNbr => {
         setNbrMemory(currentNbr);
+        setDotClick(false);
+        setPowerForDecimalNbr(1)
         return 0;
       });
       return operator;
