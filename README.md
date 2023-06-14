@@ -10,6 +10,7 @@ Make a reel project with REACT and JS
 
 - Node.js
 - NPM
+- React
 
 ```javascript
 
